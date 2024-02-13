@@ -1,0 +1,1021 @@
+		1.palindrome 
+import java.util.Scanner; 
+public class palindrome{
+public static void main(String args[]){
+Scanner sc = new Scanner(System .in);
+System.out.println("Enter the string:");
+String str=sc.nextLine();
+int flag = 0;
+int len = str.length();
+for(int i=0;i<len;i++){
+if(str.charAt(i)!=str.charAt(len-i-1)){
+flag=1;
+break;
+}}
+if(flag==0){
+System.out.println("PALINDROME");  
+}
+else{
+System.out.println("NOT PALINDROME");
+}}}
+
+		2.frequency 
+import java.util.Scanner; 
+public class frequency{
+public static void main(String[]args){
+Scanner sc = new Scanner(System .in);
+System.out.print("Enter the string:");
+String str=sc.nextLine();
+System.out.print("Enter the character:");
+char ch = sc.nextLine().charAt(0);
+int count=0;
+for(int i=0;i<str.length();i++){
+if (str.charAt(i)==ch){
+count++;
+}}
+System.out.println("count of occurence of "+ch+"="+count);
+}}
+
+            3.matrix
+import java.util.Scanner; 
+public class matrix{
+public static void main(String[]args){
+Scanner sc = new Scanner(System .in);
+System.out.println("Enter the order of m1:");
+int m1=sc.nextInt();
+System.out.println("Enter the order of n1:");
+int n1=sc.nextInt();
+System.out.println("Enter the order of m2:");
+int m2=sc.nextInt();
+System.out.println("Enter the order of n2:");
+int n2=sc.nextInt();
+if(n1!=m2){
+System.out.println("Matrix multiplication not possible");  
+return;
+}
+int A[][]=new int[m1][n1];
+int B[][]=new int[m2][n2];
+int C[][]=new int[m1][n2];
+System.out.println("Read matrix A");
+for(int i=0;i<m1;i++){
+for(int j=0;j<n1;j++){
+System.out.println("A["+i+"]["+j+"]=");
+A[i][j]=sc.nextInt();
+}}
+System.out.println("Read matrix B");
+for(int i=0;i<m2;i++){
+for(int j=0;j<n2;j++){
+System.out.println("B["+i+"]["+j+"]=");
+B[i][j]=sc.nextInt();
+}}
+for(int i=0;i<m1;i++){
+for(int j=0;j<n2;j++){
+C[i][j]=0;
+for(int k=0;k<n1;k++){
+C[i][j]+=A[i][k]*B[k][j]; 
+}}}
+System.out.println("MatrixA");
+for(int i=0;i<m1;i++){
+for(int j=0;j<n1;j++){
+System.out.print(A[i][j]+"\t");
+}
+System.out.println(""); 	
+}
+System.out.println("MatrixB");
+for(int i=0;i<m2;i++){
+for(int j=0;j<n2;j++){
+System.out.print(B[i][j]+"\t");}
+System.out.println(""); 	
+}
+System.out.println("MatrixC");
+for(int i=0;i<m1;i++){
+for(int j=0;j<n2;j++){
+System.out.print(C[i][j]+"\t");
+}
+System.out.println("");
+}}}
+
+
+		4.polymorphism shape
+abstract class test1{
+public abstract void numberOfsides(); 
+}
+   	class Rectangle extends test1
+	{
+		public void numberOfsides()
+		{
+			System.out.println("Number of sides=4");
+		}
+	}
+	class Triangle extends test1
+	{
+		public void numberOfsides()
+		{
+			System.out.println("Number of sides=3");
+		}
+	}
+	class Hexagon extends test1
+	{
+		public void numberOfsides()
+		{
+			System.out.println("Number of sides=6");
+		}
+	}
+	
+
+public class s {
+	public static void main(String args[])
+	{
+		Rectangle r = new Rectangle();
+		Triangle t = new Triangle();
+		Hexagon h=new Hexagon();
+		r.numberOfsides();
+		t.numberOfsides();
+		h.numberOfsides();
+	}
+
+}
+
+
+		5.garbage collector
+
+public class gar {
+	public void finalize()
+	  {
+		  System.out.println("Object Memory is released");
+	  }
+	   
+	  public static void main(String args[])
+		{
+		  gar t = new gar();
+		  t=null;
+		  System.gc();
+		}
+
+}
+
+
+		6.employee
+
+import java.util.Scanner;
+ class Employee
+  {
+    private String name;
+    private int age;
+    private String phone;
+    private String address;
+    private String salary;
+  
+ 
+  public void Salary()
+   {
+  	 System.out.println("Salary="+salary);
+   }
+  
+  public Employee(String name,int age,String phone,String address,String salary)
+  {
+	  this.name=name;
+	  this.age=age;
+	  this.phone=phone;
+	  this.address=address;
+	  this.salary=salary;
+  }
+  
+  public void employee()
+   {
+	  System.out.println("Name="+name);
+	  System.out.println("Age="+age);
+	  System.out.println("Phone number="+phone);
+	  System.out.println("Address="+address);
+	  System.out.println("Salary="+salary);
+   }
+  }
+   class Manager extends Employee
+   {
+	   private String specialization;
+	   private String department;
+	    public Manager(String name,int age,String phone,String address,String salary,String specialization,String department)
+	    {
+		  super(name,age,phone,address,salary); 
+		  this.specialization=specialization;
+		  this.department=department;
+	    }
+	    public void manager()
+	    {
+	     
+	        employee();
+	    	System.out.println("Specialization="+specialization);
+	    	System.out.println("Department="+department);
+	    }
+   }
+   
+   class Officer extends Employee
+   {
+	   private String specialization;
+	   private String department;
+	    public Officer(String name,int age,String phone,String address,String salary,String specialization,String department)
+	    {
+		  super(name,age,phone,address,salary);
+		  this.specialization=specialization;
+		  this.department=department;
+	    }
+	    public void officer()
+	    {
+	     
+	    	employee();
+	    	System.out.println("Specialization="+specialization);
+	    	System.out.println("Department="+department);
+	    }
+   }
+     
+   class Test
+   {
+	   public static void main(String args[])
+	   {
+		   Scanner sc = new Scanner(System.in);
+		   
+		   System.out.println("Enter Manager Details");
+		   System.out.print("Name:");
+		   String name=sc.nextLine();
+		   System.out.print("Age:");
+		   int age =sc.nextInt();sc.nextLine();
+		   System.out.print("Phone Number:");
+		   String phone=sc.nextLine();
+		   System.out.print("Address:");
+		   String addr=sc.nextLine();
+		   System.out.print("Salary:");
+		   String salary =sc.nextLine();
+		   System.out.print("Specialization:");
+		   String spec=sc.nextLine();
+		   System.out.print("Department:");
+		   String dept=sc.nextLine();
+		   
+		   Manager m=new Manager(name,age,phone,addr,salary,spec,dept);
+		   m.manager();
+		   
+		   System.out.println("Enter Officer Details");
+		   System.out.print("Name:");
+		   String name1=sc.nextLine();
+		   System.out.print("Age:");
+		   int age1 =sc.nextInt();sc.nextLine();
+		   System.out.print("Phone Number:");
+		   String phone1=sc.nextLine();
+		   System.out.print("Address:");
+		   String addr1=sc.nextLine();
+		   System.out.print("Salary:");
+		   String salary1 =sc.nextLine();
+		   System.out.print("Specialization:");
+		   String spec1=sc.nextLine();
+		   System.out.print("Department:");
+		   String dept1=sc.nextLine();
+		   
+		   Officer O=new Officer(name1,age1,phone1,addr1,salary1,spec1,dept1);
+		   O.officer();
+	   }
+   }
+   
+
+		7.file read/write
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+	
+	class t1 {
+		public static void main(String args[]) {
+			try {
+				FileReader fin1=new FileReader("C:\\Users\\student\\Desktop\\file1.txt ");
+				FileReader fin2= new FileReader("C:\\Users\\student\\Desktop\\file2.txt ");
+				FileWriter fout=new FileWriter("C:\\Users\\student\\Desktop\\file3.txt");
+				int i;
+				
+				
+				while((i=fin1.read())!=-1) {
+					fout.write(i);
+				}
+				
+				while( (i=fin2.read())!=-1){
+					fout.write(i);
+				}
+				fin1.close();
+				fin2.close();
+				fout.close();
+				
+			}
+			catch(IOException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+
+
+		8.file copy
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+public class filecpy {
+		public static void main(String args[])  {
+			try {
+				FileReader fin=new FileReader("C:\\Users\\student\\Desktop\\test.txt");
+				FileWriter fout=new FileWriter("C:\\Users\\student\\Desktop\\copy.txt");
+				int i;
+				while((i=fin.read())!=-1) 
+				{
+					fout.write(i);
+				}
+				fin.close();
+				fout.close();
+			    }
+			catch(FileNotFoundException e) {
+				System.out.println(e.getMessage());
+			}
+	catch(IOException e) {
+		System.out.println(e.getMessage());
+				
+	
+	        }
+		}
+	}
+
+		
+		9.file tokenizer
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class fileint {
+	
+		public static void main(String args[])
+		   {
+			 try {
+				 FileReader fin = new FileReader("C:\\Users\\student\\Desktop\\text.txt");
+				 BufferedReader br = new BufferedReader(fin);
+				 String inp = br.readLine();
+				 int sum=0;
+				 for (String element:inp.split(""))
+				 {
+					 System.out.println(element);
+					 sum=sum+Integer.parseInt(element);
+				 }
+				 System.out.println("sum="+sum);
+				 fin.close();
+			    }
+			 catch (IOException e)
+			 {
+				 System.out.println(e.getMessage());
+			 }
+		   }
+	}
+
+
+		10.try catch throw finally
+
+import java.util.Scanner;
+public class trycatch 
+{
+	public static void divide (float a,float b)throws ArithmeticException 
+	  {
+		if (b==0) 
+		{
+			throw new ArithmeticException("Divide by zero is not possible");
+		}
+	    else 
+	    {
+		System.out.println("Result="+a/b);
+	    }
+	 }
+  public static void main(String args[])
+   {
+	int x,y;
+	 try 
+	    {
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Enter the value X and Y");
+				x=sc.nextInt();
+				y=sc.nextInt();
+				divide(x,y);
+        }
+	     catch (ArithmeticException e) 
+	      {
+	     	System.out.println(e.getMessage());
+	      }
+	     finally 
+	      {
+		System.out.println("End of program");
+	      }
+    }
+}
+
+
+		11.random thread
+
+import java.util.Random;
+
+class RandomThreads extends Thread
+{
+public void run() 
+   {
+	Random r= new Random();
+	for(int i=0; i<20;i++)
+	  {
+		int n = r.nextInt(100);
+		if (n%2==0)
+		    {
+			new Even(n).start();
+	        }
+		else 
+		{
+		 new odd(n).start();
+		}
+	  }
+	}
+}
+
+class Even extends Thread
+{
+	private int num;
+	public Even(int num) 
+	  {
+		this.num=num;
+	  }
+  public void run()
+    {
+	System.out.println("Square of "+num+"="+num*num);
+    }
+}
+class odd extends Thread
+{
+	private int num;
+	public odd (int num)
+	  {
+		System.out.println("Cube of "+num+"="+num*num*num);	
+	  }
+}
+ class randomthread
+    {
+	public static void main(String args []) 
+	 {
+		RandomThreads r= new RandomThreads();
+		r.start();
+	}
+}
+
+
+		12.thread synchronisation
+
+class display
+{
+	public synchronized void print(String msg)
+	{
+		System.out.print("["+msg);
+		try
+		    {
+			Thread.sleep(1000);
+		    }
+		catch(Exception e) 
+		    {
+			System.out.println(e.getMessage());
+			}
+			System.out.print("]");
+	}
+}
+
+class SyncThread extends Thread
+{
+	private display d;
+	private String msg;
+	public SyncThread(display d,String msg)
+	{
+		this.d=d;
+		this.msg=msg;
+	}
+	public void run() 
+	{
+		d.print(msg);
+	}
+}
+
+public class threadsync 
+{
+	public static void main(String args[])
+	   {
+		display d=new display();
+		SyncThread t1=new SyncThread(d,"Hello");
+		SyncThread t2=new SyncThread(d,"World");
+		t1.start();
+		t2.start();
+	   }
+}
+
+
+		13.quicksort
+
+import java.util.Scanner; 
+public class sort {
+	public static void quickSort(String A[],int p,int r)
+	{
+		if(p<r) {
+			int q = partition(A,p,r);
+			quickSort(A,p,q-1);
+			quickSort(A,q+1,r);
+		}
+	}
+	
+	public static int partition(String A[],int p,int r)
+	{
+		String x=A[r];
+		int i=p-1;
+		for(int j=p;j<=r-1;j++)
+	    {
+			if (A[j].compareTo(x)<=0) {
+				i=i+1;
+				String temp=A[i];
+				A[i]=A[j];
+				A[j]=temp;
+			}
+	    }
+		String temp=A[i+1];
+		A[i+1]=A[r];
+		A[r]= temp;
+		return i+1;
+	}
+
+	public static void main(String[]args)
+	{
+		Scanner sc = new Scanner(System .in);
+		System.out.println("Enter the limit:");
+		 int n=sc.nextInt();
+		 sc.nextLine();
+		  
+		 String A[]=new String[n];
+		 System.out.println("Enter the names:");
+		  for (int i=0;i<n;i++)
+		    {
+			  A[i]=sc.nextLine();
+		    }
+		  quickSort(A,0,n-1);
+		  System.out.println("After QuickSort");
+		  for (int i=0;i<n;i++)
+		    {
+			  System.out.println(A[i]);
+		    }
+	}
+	
+}
+
+		14.binary search
+
+import java.util.Scanner; 
+public class binarysearch 
+{
+	static int index=-1;
+	public static int binarysearch(int a[],int lb,int ub,int key){
+		if(lb<=ub) {
+			int mid=(lb+ub/2);
+			if(a[mid]==key)
+				index=mid;
+			else if(a[mid]>key)
+				binarysearch(a,lb,mid-1,key);
+			else
+				binarysearch(a,mid+1,ub,key);
+		}
+			return index;
+	}
+	public static void main(String[]args) {
+	    int a[]= {1,5,23,44,52,60,67,100};
+		int key=100;
+		int index=binarysearch(a,0,7,key);
+		if(index==-1)
+			System.out.println("Element is not found");
+		else
+			System.out.println("Element found at index "+index);
+	}
+}
+
+
+		15.linked list
+import java.util.Scanner;
+
+class LinkedList
+{
+	 private Node head;
+	 
+	 class Node
+	 {
+		 private int data;
+		 private Node left;
+		 private Node right;
+		 public Node (int data)
+		 {
+			 this.data=data;
+			 this.left=null;
+			 this.right=null;
+		 }
+	 }
+	 
+	 public void insert(int data)
+	 {
+		 Node temp=new Node(data);
+		 if (head==null)
+		 {
+			 head=temp;
+		 }
+		 else
+		 {
+			 Node ptr=head;
+			  while(ptr.right!=null)
+			  {
+				  ptr=ptr.right;
+			  }
+			  ptr.right=temp;
+			  temp.left=ptr;
+		 }
+	 }
+	 
+	 public void delete()
+	 {
+		if (head==null)
+		 {
+			 System.out.println("List is Empty\n");   
+			 return;
+		 }
+		   //int x=head.data;
+		  head=head.right;
+		if(head!=null)
+		  head.left=null;
+		   System.out.println("Element deleted");  
+		   System.out.println("\n");
+	 }
+	 
+	 public void display()
+	 {
+		 if (head==null)
+		 {
+			 System.out.println("List is Empty\n");   
+		 }
+		 else
+		 {
+			 Node ptr=head;
+			 while(ptr!=null)
+			  {
+				System.out.print(ptr.data+"\t");   
+				ptr=ptr.right;
+			  }
+			 System.out.println("\n");
+		 }
+	 } 
+}
+
+
+public class listlinked 
+{
+	public static void main(String[]args)
+	{
+		LinkedList list = new LinkedList();
+		Scanner sc = new Scanner(System.in);	
+		String choice=" ";
+		
+		while(!choice.equals("4"))
+		{
+		 System.out.println("1.Insert at End\n2.Delete from Front\n3.Dispaly\n4.Exit");
+		 System.out.print("Enter your choice?:");
+		  choice=sc.nextLine();
+		  
+		   switch(choice)
+		   {
+		   case "1":
+			   System.out.print("Enter the number to be insert:");
+			   int data=sc.nextInt();
+			   sc.nextLine();
+			   list.insert(data);
+			   System.out.println("Data inserted successfully\n");
+			   break;
+			   
+		   case "2":
+			   list.delete();
+			   break;
+			   
+		   case "3":
+			   list.display();
+			   break;
+			   
+		   case "4":
+			   System.out.println("Exiting..");
+			   break;
+			   
+		   default:System.out.println("INVALID CHOICE\n");   
+		   }
+		}
+	}
+}
+
+
+
+		16.Calculator
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class calc extends JFrame implements ActionListener 
+{
+   private JTextField t1;
+   private JButton b1;
+   private JButton b2;
+   private JButton b3;
+   private JButton b4;
+   private JButton b5;
+   private JButton b6;
+   private JButton b7;
+   private JButton b8;
+   private JButton b9;
+   private JButton b10;
+   private JButton b11;
+   private JButton b12;
+   private JButton b13;
+   private JButton b14;
+   private JButton b15;
+   private JButton b16;
+   
+   private Integer res;
+   private String operation;
+   
+   public calc()
+   {
+	   setLayout(null);
+	   setSize(640,480);
+	   
+	   t1=new JTextField();
+	   t1.setBounds(100,100,200,30);
+	   
+	   b1=new JButton("1");
+	   b1.setBounds(100,140,50,30);
+	   
+	   b2=new JButton("2");
+	   b2.setBounds(150,140,50,30);
+	   
+	   b3=new JButton("3");
+	   b3.setBounds(200,140,50,30);
+	   
+	   b4=new JButton("+");
+	   b4.setBounds(250,140,50,30);
+	 ///////////////////////////////////////
+	   b5=new JButton("4");
+	   b5.setBounds(100,170,50,30);
+	   
+	   b6=new JButton("5");
+	   b6.setBounds(150,170,50,30);
+	   
+	   b7=new JButton("6");
+	   b7.setBounds(200,170,50,30);
+	   
+	   b8=new JButton("-");
+	   b8.setBounds(250,170,50,30);
+	 ////////////////////////////////////// 
+	   b9=new JButton("7");
+	   b9.setBounds(100,200,50,30);
+	   
+	   b10=new JButton("8");
+	   b10.setBounds(150,200,50,30);
+	   
+	   b11=new JButton("9");
+	   b11.setBounds(200,200,50,30);
+	  
+	   b12=new JButton("*");
+	   b12.setBounds(250,200,50,30);
+	  ////////////////////////////////////// 
+	   b13=new JButton("/");
+	   b13.setBounds(100,230,50,30);
+	   
+	   b14=new JButton("%");
+	   b14.setBounds(150,230,50,30);
+	   
+	   b15=new JButton("=");
+	   b15.setBounds(200,230,50,30);
+	   
+	   b16=new JButton("C");
+	   b16.setBounds(250,230,50,30);
+	   
+	   add(t1);add(b1);add(b2);add(b3);add(b4);
+	   add(b5);add(b6);add(b7);add(b8);add(b9);
+	   add(b10);add(b11);add(b12);add(b13);add(b14);
+	   add(b15);add(b16);
+	   
+	   b1.addActionListener(this);
+	   b2.addActionListener(this);
+	   b3.addActionListener(this);
+	   b4.addActionListener(this);
+	   b5.addActionListener(this);
+	   b6.addActionListener(this);
+	   b7.addActionListener(this);
+	   b8.addActionListener(this);
+	   b9.addActionListener(this);
+	   b10.addActionListener(this);
+	   b11.addActionListener(this);
+	   b12.addActionListener(this);
+	   b13.addActionListener(this);
+	   b14.addActionListener(this);
+	   b15.addActionListener(this);
+	   b16.addActionListener(this);   
+   }
+   
+   public void doAction(String op)
+   {
+	   if(operation==null)
+	   {
+		   operation=op;
+		   res=Integer.parseInt(t1.getText());
+		   t1.setText("");
+	   }
+	   else
+	   {
+		   switch(operation)
+		   {
+		   case "+":
+			   res=res+Integer.parseInt(t1.getText());
+			   break;
+			 
+		   case "-":
+			   res=res-Integer.parseInt(t1.getText());
+			   break;
+			     
+		   case "/":
+			   try
+			   {
+				  if(t1.getText().equals("0"))
+					{
+					  throw new ArithmeticException("Divide by zero");
+				    }
+			   res=res/Integer.parseInt(t1.getText());
+			   }
+			   catch(ArithmeticException e)
+			   {
+				   t1.setText(e.getMessage());
+				   operation=null;
+				   res=0;
+			   }
+			   break;
+			   
+		   case "*":
+			   res=res*Integer.parseInt(t1.getText());
+			   break;
+			   
+		   case "%":
+			   res=res%Integer.parseInt(t1.getText());
+			   break;
+		   }
+		   
+		   if(op.equals("="))
+		   {
+			   t1.setText(res.toString());
+			   res=0;
+			   operation=null;
+		   }
+		   else
+		   {
+			   operation=op;
+			   t1.setText(""); 
+		   }
+	   }
+   }
+   
+   public void actionPerformed(ActionEvent e)
+   {
+	     if(e.getSource()==b1)
+	       t1.setText(t1.getText()+"1");
+	   
+	       else if(e.getSource()==b2)
+	       t1.setText(t1.getText()+"2");  
+	   
+	       else if(e.getSource()==b3)
+	       t1.setText(t1.getText()+"3");
+	     
+	       else  if(e.getSource()==b5)
+	       t1.setText(t1.getText()+"4");
+	     
+	       else  if(e.getSource()==b6)
+	       t1.setText(t1.getText()+"5");
+	     
+	       else if(e.getSource()==b7)
+	       t1.setText(t1.getText()+"6");
+	     
+	       else if(e.getSource()==b9)
+	       t1.setText(t1.getText()+"7");
+	     
+	       else  if(e.getSource()==b10)
+	       t1.setText(t1.getText()+"8");
+	     
+	       else  if(e.getSource()==b11)
+	       t1.setText(t1.getText()+"9");
+	     
+	       else if(e.getSource()==b16)
+	     {
+	    	 t1.setText("");
+	    	 res=0;
+	    	 operation=null;		 
+	     }
+	     
+	       else if(e.getSource()==b4)
+	       doAction("+");
+	     
+	       else if(e.getSource()==b8)
+	       doAction("-");
+	     
+	       else if(e.getSource()==b12)
+		       doAction("*");
+	     
+	       else if(e.getSource()==b13)
+	       doAction("/");
+	     
+	       else if(e.getSource()==b14)
+	       doAction("%");
+	     
+	       else if(e.getSource()==b15)
+	       doAction("=");
+   }
+   public static void main(String args[])
+   {
+	   new calc().setVisible(true);
+   }
+}
+
+
+
+		17.Traffic
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class TrafficLights extends JPanel implements ActionListener{
+	private JRadioButton r1;
+	private JRadioButton r2;
+	private JRadioButton r3;
+	private Color red_c;
+	private Color green_c;
+	private Color orange_c;
+public TrafficLights() {
+	setBounds(0,0,600,480);
+	r1=new JRadioButton("Red");
+	r2=new JRadioButton("Green");
+	r3=new JRadioButton("Orange");
+	ButtonGroup group=new ButtonGroup();
+	r1.setSelected(true);
+	group.add(r1);
+	group.add(r2);
+	group.add(r3);
+	add(r1);
+	add(r2);
+	add(r3);
+	red_c=Color.red;
+	green_c=getBackground();
+	orange_c=getBackground();
+	r1.addActionListener(this);
+	r2.addActionListener(this);
+	r3.addActionListener(this);
+}
+public void actionPerformed(ActionEvent e) {
+	if(r1.isSelected()==true) {
+		red_c=Color.red;
+		green_c=getBackground();
+		orange_c=getBackground();
+	}
+	else if(r2.isSelected()==true) {
+		red_c=getBackground();
+		green_c=Color.green;
+		orange_c=getBackground();
+	}
+	else if(r3.isSelected()==true) {
+		red_c=getBackground();
+		green_c=getBackground();
+		orange_c=Color.orange;
+	}
+	repaint();
+}
+public void paintComponent(Graphics g) {
+	super.paintComponent(g);
+	g.drawOval(50,50,50,50);
+	g.drawOval(50,110,50,50);
+	g.drawOval(50,170,50,50);
+	g.setColor(red_c);
+	g.fillOval(50,50,50,50);
+	g.setColor(orange_c);
+	g.fillOval(50,110,50,50);
+	g.setColor(green_c);
+	g.fillOval(50, 170, 50, 50);
+}
+}
+class light{
+	public static void main(String args[]) {
+		JFrame f1=new JFrame();
+		f1.setVisible(true);
+		f1.setSize(600,480);
+		f1.setLayout(null);
+		TrafficLights t=new TrafficLights();
+		f1.add(t);
+	}
+}
+
+		
